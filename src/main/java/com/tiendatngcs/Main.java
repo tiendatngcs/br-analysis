@@ -41,12 +41,21 @@ public class Main {
         }
         PrintWriter writer_text = new PrintWriter(fileWriter_text);
 
+        FileWriter fileWriter_stacktrace = null;
+        try {
+            fileWriter_stacktrace = new FileWriter("stacktraceset.txt");
+        } catch(Exception e) {
+
+        }
+        PrintWriter writer_stacktrace = new PrintWriter(fileWriter_stacktrace);
+
         Connection conn = null;
         Statement statement = null;
         // Class.forName("org.sqlite.JDBC");
 
         String url = "jdbc:sqlite:" + db_path;
         System.out.println("Connecting to " + url);
+        CodeIdentifier classifier = new CodeIdentifier();
         try {
             Class.forName("org.sqlite.JDBC");
             conn = DriverManager.getConnection(url);
@@ -59,8 +68,10 @@ public class Main {
                 String[] lines = br_description.split("\n", 0);
                 for (String line: lines) {
                     System.out.println(line);
-                    if (CodeIdentifier.is_code(line)) {
+                    if (classifier.is_code(line)) {
                         writer_code.println(line);
+                    } else if (classifier.is_stacktrace(line)) {
+                        writer_stacktrace.println(line);
                     } else {
                         writer_text.println(line);
                     }   
