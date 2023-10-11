@@ -7,35 +7,28 @@ import org.json.JSONException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import src.main.java.com.tiendatngcs.CodeNaturalLangExtractor;
-import src.main.java.com.tiendatngcs.ChatBot;
+// import com.google.common.io.CharStreams;
+import org.antlr.v4.runtime.CommonTokenStream;
+import org.antlr.v4.runtime.tree.ParseTree;
+import org.antlr.v4.runtime.tree.ParseTreeWalker;
+import org.antlr.v4.runtime.CharStreams;
+
+import com.tiendatngcs.antlr4.JavaLexer;
+import com.tiendatngcs.antlr4.JavaParser;
+import com.tiendatngcs.antlr4.JavaParserListener;
 
 public class Main {
-    private static final Logger LOGGER = LoggerFactory.getLogger(Main.class);
+    // private static final Logger LOGGER = LoggerFactory.getLogger(Main.class);
     public static void main(String[] args) {
-        CodeNaturalLangExtractor extractor = new CodeNaturalLangExtractor();
+        String javaClassContent = "public class SampleClass { void DoSomething(){} }";
+        JavaLexer lexer = new JavaLexer(CharStreams.fromString(javaClassContent));
 
-        // Set ChatGPT endpoint and API key
-        String endpoint = "https://api.openai.com/v1/chat/completions";
-        String apiKey = "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";
-            
-        // Prompt user for input string
-        try {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        System.out.print("Enter your message: ");
-        String input = reader.readLine();
-                
-        // Send input to ChatGPT API and display response
-        String response = ChatBot.sendQuery(input, endpoint, apiKey);
+        CommonTokenStream tokens = new CommonTokenStream(lexer);
+        JavaParser parser = new JavaParser(tokens);
+        // ParseTree tree = parser.compilationUnit();
+        // ParseTreeWalker walker = new ParseTreeWalker();
+        // JavaParserListener listener= new JavaParserListener();
 
-        LOGGER.info("Response: {}", response);
-        } catch (IOException e) {
-        LOGGER.error("Error reading input: {}", e.getMessage());
-        } catch (JSONException e) {
-        LOGGER.error("Error parsing API response: {}", e.getMessage());
-        } catch (Exception e) {
-        LOGGER.error("Unexpected error: {}", e.getMessage());
-        }
-        
+        System.out.println("Num syntax error: " + parser.getNumberOfSyntaxErrors());
     }
 }

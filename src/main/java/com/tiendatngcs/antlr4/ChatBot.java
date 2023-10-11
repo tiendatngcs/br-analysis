@@ -1,4 +1,4 @@
-package src.main.java.com.tiendatngcs;
+package com.tiendatngcs.antlr4;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
