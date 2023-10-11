@@ -1,4 +1,4 @@
-// Generated from ./grammars-v4/java/java/JavaParser.g4 by ANTLR 4.13.1
+// Generated from java-escape by ANTLR 4.11.1
 package com.tiendatngcs.antlr4;
 
 import org.antlr.v4.runtime.ParserRuleContext;

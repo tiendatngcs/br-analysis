@@ -1,0 +1,37 @@
+Created attachment 272089
+Project showing the problem
+Calling organize import with a static import on a package private constant triggers a compilation error.
+OrganizeImportTriggersCompileError.java:
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+package pkg.my;
+import static pkg.other.Public.PUBLIC_CONSTANT;
+public class OrganizeImportTriggersCompileError {
+    public static void main(String[] args) {
+        System.out.println(PUBLIC_CONSTANT);
+    }
+}
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+PackagePrivate.java:
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+package pkg.other;
+class PackagePrivate {
+    public static final String PUBLIC_CONSTANT = "public constant";
+}
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+Public.java:
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+package pkg.other;
+public class Public extends PackagePrivate {
+}
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+Runing organize import on OrganizeImportTriggersCompileError.java ends up with this code:
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+package pkg.my;
+import static pkg.other.PackagePrivate.PUBLIC_CONSTANT;
+public class OrganizeImportTriggersCompileError {
+public static void main(String[] args) {
+        System.out.println(PUBLIC_CONSTANT);
+    }
+}
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+which gives a compilation error because PackagePrivate is not accessible by OrganizeImportTriggersCompileError.

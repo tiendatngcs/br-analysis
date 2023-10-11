@@ -1,7 +1,15 @@
-/home/grads/t/tiendat.ng.cs/java-dev/br-analysis/src/main/java/com/tiendatngcs/antlr4/JavaParserBaseListener.java
 /home/grads/t/tiendat.ng.cs/java-dev/br-analysis/src/main/java/com/tiendatngcs/antlr4/ChatBot.java
-/home/grads/t/tiendat.ng.cs/java-dev/br-analysis/src/main/java/com/tiendatngcs/antlr4/JavaParser.java
+/home/grads/t/tiendat.ng.cs/java-dev/br-analysis/src/main/java/com/tiendatngcs/antlr4/StackTraceBaseListener.java
+/home/grads/t/tiendat.ng.cs/java-dev/br-analysis/src/main/java/com/tiendatngcs/antlr4/StackTraceLexer.java
 /home/grads/t/tiendat.ng.cs/java-dev/br-analysis/src/main/java/com/tiendatngcs/antlr4/JavaParserListener.java
+/home/grads/t/tiendat.ng.cs/java-dev/br-analysis/src/main/java/com/tiendatngcs/CodeIdentifier.java
+/home/grads/t/tiendat.ng.cs/java-dev/br-analysis/src/main/java/com/tiendatngcs/antlr4/StackTraceListener.java
 /home/grads/t/tiendat.ng.cs/java-dev/br-analysis/src/main/java/com/tiendatngcs/CodeNaturalLangExtractor.java
+/home/grads/t/tiendat.ng.cs/java-dev/br-analysis/src/main/java/com/tiendatngcs/antlr4/StackTraceBaseVisitor.java
+/home/grads/t/tiendat.ng.cs/java-dev/br-analysis/src/main/java/com/tiendatngcs/antlr4/JavaParserBaseListener.java
+/home/grads/t/tiendat.ng.cs/java-dev/br-analysis/src/main/java/com/tiendatngcs/antlr4/StackTraceVisitor.java
+/home/grads/t/tiendat.ng.cs/java-dev/br-analysis/src/main/java/com/tiendatngcs/antlr4/StackTraceParser.java
+/home/grads/t/tiendat.ng.cs/java-dev/br-analysis/src/main/java/com/tiendatngcs/antlr4/JavaParser.java
+/home/grads/t/tiendat.ng.cs/java-dev/br-analysis/src/main/java/com/tiendatngcs/DataBase.java
 /home/grads/t/tiendat.ng.cs/java-dev/br-analysis/src/main/java/com/tiendatngcs/antlr4/JavaLexer.java
 /home/grads/t/tiendat.ng.cs/java-dev/br-analysis/src/main/java/com/tiendatngcs/Main.java

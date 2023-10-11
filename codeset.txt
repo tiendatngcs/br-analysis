@@ -1,0 +1,15 @@
+package pkg.my;
+import static pkg.other.Public.PUBLIC_CONSTANT;
+public class OrganizeImportTriggersCompileError {
+    public static void main(String[] args) {
+        System.out.println(PUBLIC_CONSTANT);
+package pkg.other;
+class PackagePrivate {
+    public static final String PUBLIC_CONSTANT = "public constant";
+package pkg.other;
+public class Public extends PackagePrivate {
+package pkg.my;
+import static pkg.other.PackagePrivate.PUBLIC_CONSTANT;
+public class OrganizeImportTriggersCompileError {
+    public static void main(String[] args) {
+        System.out.println(PUBLIC_CONSTANT);
